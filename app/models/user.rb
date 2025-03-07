@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :birth_date, presence: true
   validates :password, presence: true, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/ }
 
-  has_many :items
-  has_many :purchases
+  # has_many :items
+  # has_many :purchases
 end
