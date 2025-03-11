@@ -2,8 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    # 商品一覧表示機能実装時に復活させる
-    # @items = Item.order('created_at DESC')
+    @items = Item.order('created_at DESC')
   end
 
   def new
