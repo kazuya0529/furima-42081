@@ -12,4 +12,11 @@ class PurchasesController < ApplicationController
       render :index, status: :unprocessable_entity
     end
   end
+
+  private
+
+  def purchase_params
+    params.require(:purchase_order).permit(:postal_code, :prefecture_id, :city, :addresses, :building,
+                                           :phone_number).merge(user_id: current_user.id)
+  end
 end
