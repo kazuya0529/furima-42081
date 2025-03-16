@@ -1,6 +1,6 @@
 class PurchaseOrder
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number
+  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number, :token
 
   with_options presence: true do
     validates :user_id
@@ -11,6 +11,7 @@ class PurchaseOrder
     validates :addresses
     validates :phone_number,
               format: { with: /\A\d{10,11}\z/, message: 'is invalid. Enter a 10 or 11 digit number without hyphens' }
+    validates :token, presence: { message: "can't be blank" }
   end
 
   def save
