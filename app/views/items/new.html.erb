@@ -10,7 +10,6 @@
 
     <%= render 'shared/error_messages', model: @item %>
 
-    <%# 商品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
         商品画像
@@ -22,7 +21,6 @@
       </div>
     </div>
 
-    <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
         商品名
@@ -39,7 +37,6 @@
       </div>
     </div>
 
-    <%# 商品の詳細 %>
     <div class="items-detail">
       <div class="weight-bold-text">商品の詳細</div>
       <div class="form">
@@ -57,7 +54,6 @@
       </div>
     </div>
 
-    <%# 配送について %>
     <div class="items-detail">
       <div class="weight-bold-text question-text">
         <span>配送について</span>
@@ -84,7 +80,6 @@
       </div>
     </div>
 
-    <%# 販売価格 %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
         <span>販売価格<br>(¥300〜9,999,999)</span>
@@ -114,7 +109,6 @@
       </div>
     </div>
 
-    <%# 注意書き %>
     <div class="caution">
       <p class="sentence">
         <a href="#">禁止されている出品、</a>
@@ -133,7 +127,6 @@
       </p>
     </div>
 
-    <%# 出品ボタンと戻るボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "出品する" ,class:"sell-btn" %>
       <%= link_to 'もどる', root_path, class:"back-btn" %>
