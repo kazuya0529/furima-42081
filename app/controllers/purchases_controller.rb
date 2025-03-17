@@ -1,8 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :set_item, only: [:index, :create]
   before_action :authenticate_user!
-  before_action :redirect_if_sold_out, only: [:index, :create]
-  before_action :redirect_if_seller, only: [:index, :create]
+  before_action :move_to_index, only: [:index, :create]
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
@@ -41,15 +40,7 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def redirect_if_sold_out
-    return unless @item.purchase.present? && @item.user_id != current_user.id
-
-    redirect_to root_path
-  end
-
-  def redirect_if_seller
-    return unless @item.user_id == current_user.id
-
-    redirect_to root_path
+  def move_to_index
+    redirect_to root_path if current_user.id == @item.user.id || @item.purchase.present?
   end
 end
